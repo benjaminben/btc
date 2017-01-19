@@ -17,7 +17,7 @@ p, h1, h2, h3, h4 {
 }
 
 .page {
-  min-height: 100%;
+  /*min-height: 100%;*/
   position: relative;
   padding-top: 100px;
 }
@@ -74,6 +74,7 @@ p, h1, h2, h3, h4 {
 nav {
   position: absolute;
   display: table;
+  table-layout: fixed;
   width: 100%;
   background: rgba(72,72,72,1);
   transform: translate(0,-100%);
@@ -92,6 +93,7 @@ nav a {
   height: 60px;
   display: table-cell;
   vertical-align: middle;
+  width: 33.333%;
 }
 
 #burger {
@@ -107,10 +109,35 @@ nav a {
   transform: translate(-50%, -50%);
 }
 
-
 #about .title {
   max-width: 800px;
   margin: 0 auto;
   font-size: 3.66em;
   letter-spacing: 0.05em;
+}
+
+
+@media screen and (max-width: 768px) {
+  #about .title {
+    font-size: 7.66vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    display: flex;
+    flex-flow: column;
+    transition: transform 0.33s ease-in;
+  }
+  nav a {
+    height: 0px;
+    line-height: 0px;
+    padding: 2.66em 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  nav a:nth-of-type(2) {
+    border-top: 1px solid rgba(36,36,36,1);
+    border-bottom: 1px solid rgba(36,36,36,1);
+  }
 }
