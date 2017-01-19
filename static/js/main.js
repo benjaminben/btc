@@ -72,7 +72,7 @@ function contact() {
 
       switch (err) {
         case "EMAIL_LENGTH":
-          errMsg = "Please enter an email address for me to get back to"
+          errMsg = "Please enter an email address for me to write back to"
           break
         case "EMAIL_FORMAT":
           errMsg = "Please enter a valid email address (@ n' all that)"

@@ -34,6 +34,19 @@ p, h1, h2, h3, h4 {
 .inline-table {
   display: inline-table;
 }
+.table-cell {
+  display: table-cell;
+}
+
+.v-top {
+  vertical-align: top;
+}
+.v-middle {
+  vertical-align: middle;
+}
+.v-bottom {
+  vertical-align: bottom;
+}
 
 .justify-between {
   justify-content: space-between;
@@ -110,9 +123,7 @@ nav a {
 }
 
 #burger svg {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 #contact .title {
@@ -120,7 +131,9 @@ nav a {
 }
 #contact_error {
   width: 90%;
-  max-width: 500px;
+  font-size: 1.33em;
+  font-weight: 500;
+  max-width: 360px;
   color: rgba(218,52,77,1);
   margin: 0 auto 20px;
 }
@@ -128,6 +141,7 @@ nav a {
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 #contact_form input,
 #contact_form textarea {
@@ -155,7 +169,7 @@ nav a {
   vertical-align: top;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  resize: vertical;
+  resize: none;
 }
 #contact_form input[type="submit"] {
   width: 150px;

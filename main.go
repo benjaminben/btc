@@ -50,7 +50,6 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
     body := req.Form.Get("body")
 
     SendContact(sender, subject, body)
-    // executor.ExecuteTemplate(res, "thanks", &Page{Title: "Thanks"})
     http.Redirect(res, req, "/contact", http.StatusSeeOther)
   }
 }
