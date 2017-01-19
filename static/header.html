@@ -1,0 +1,25 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{.Title}} | Ben Teaches Code</title>
+  <link rel="stylesheet" href="/static/assets/fonts/Gotham/stylesheet.css" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <nav id="nav" class="text-center uppercase">
+    <a class="pointer" href="/"><span>about</span></a>
+    <a class="pointer" href="/contact"><span>contact</span></a>
+    <a class="pointer" href="/hype"><span>hype</span></a>
+    <span id="burger" class="pointer">
+      <svg width="50px" height="41px" viewBox="0 0 50 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect id="Rectangle-5" stroke="none" fill="#F5DD90" fill-rule="evenodd" x="0" y="0" width="50" height="7"></rect>
+        <rect id="Rectangle-5" stroke="none" fill="#7FB069" fill-rule="evenodd" x="0" y="10" width="50" height="4"></rect>
+        <rect id="Rectangle-5" stroke="none" fill="#DE6B48" fill-rule="evenodd" x="0" y="17" width="50" height="7"></rect>
+        <rect id="Rectangle-5" stroke="none" fill="#DA344D" fill-rule="evenodd" x="0" y="27" width="50" height="4"></rect>
+        <rect id="Rectangle-5" stroke="none" fill="#F5DD90" fill-rule="evenodd" x="0" y="34" width="50" height="7"></rect>
+      </svg>
+    </span>
+  </nav>
+{{end}}

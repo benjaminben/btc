@@ -1,0 +1,13 @@
+{{define "contact"}}
+{{template "header" .}}
+
+Contact
+<form id="contact_form" action="/contact" method="post">
+  email:<input name="email" type="text" placeholder="email" />
+  subject:<input name="subject" type="text" placeholder="subject" />
+  message:<input name="body" type="text" placeholder="body" />
+  <input type="submit" value="hit me!" />
+</form>
+
+{{template "footer" .}}
+{{end}}
