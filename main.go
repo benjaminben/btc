@@ -6,15 +6,6 @@ import(
   "io"
 )
 
-var templates = template.Must(
-  template.ParseFiles(
-    "./static/header.html",
-    "./static/footer.html",
-    "./static/about.html",
-    "./static/contact.html",
-    "./static/testies.html",
-  ))
-
 type Page struct {
   Title string
 }
@@ -40,15 +31,10 @@ func (e ReleaseTemplateExecutor) ExecuteTemplate(wr io.Writer, name string, data
     return e.Template.ExecuteTemplate(wr, name, data)
 }
 
-
-
-
 const templateGlob = "static/*.html"
 const debug = true
 
 var executor TemplateExecutor
-
-
 
 func handleAbout(res http.ResponseWriter, req *http.Request) {
   executor.ExecuteTemplate(res, "about", &Page{Title: "About"})
@@ -64,7 +50,8 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
     body := req.Form.Get("body")
 
     SendContact(sender, subject, body)
-    executor.ExecuteTemplate(res, "contact", &Page{Title: "Contact"})
+    // executor.ExecuteTemplate(res, "thanks", &Page{Title: "Thanks"})
+    http.Redirect(res, req, "/contact", http.StatusSeeOther)
   }
 }
 func handleTesties(res http.ResponseWriter, req *http.Request) {
@@ -80,14 +67,10 @@ func main() {
       executor = DebugTemplateExecutor{templateGlob}
 
   } else {
-      executor = ReleaseTemplateExecutor{
-          template.Must(template.ParseGlob(templateGlob)),
-      }
+    executor = ReleaseTemplateExecutor{
+      template.Must(template.ParseGlob(templateGlob)),
+    }
   }
-  http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
-    executor.ExecuteTemplate(w, "testies", nil)
-  })
-
 
   http.HandleFunc("/", handleAbout)
   http.HandleFunc("/contact", handleContact)

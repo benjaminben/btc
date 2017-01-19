@@ -1,13 +1,16 @@
 {{define "contact"}}
 {{template "header" .}}
 
-Contact
-<form id="contact_form" action="/contact" method="post">
-  email:<input name="email" type="text" placeholder="email" />
-  subject:<input name="subject" type="text" placeholder="subject" />
-  message:<input name="body" type="text" placeholder="body" />
-  <input type="submit" value="hit me!" />
-</form>
+<div id="contact" class="page text-center">
+  <h1 class="title white bold">SAY HAY</h1>
+  <p id="contact_error"></p>
+  <form id="contact_form" action="/contact" method="post">
+    <input id="contact_email" name="email" type="text" placeholder="email" />
+    <input id="contact_subject" name="subject" type="text" placeholder="subject" />
+    <textarea id="contact_body" name="body" placeholder="body"></textarea>
+    <input class="pointer gotham white" type="submit" value="HAY" />
+  </form>
+</div>
 
 {{template "footer" .}}
 {{end}}

@@ -16,12 +16,6 @@ p, h1, h2, h3, h4 {
   margin: 0;
 }
 
-.page {
-  /*min-height: 100%;*/
-  position: relative;
-  padding-top: 100px;
-}
-
 .flex {
   display: flex;
 }
@@ -71,6 +65,18 @@ p, h1, h2, h3, h4 {
   cursor: pointer;
 }
 
+.page {
+  position: relative;
+  padding-top: 100px;
+}
+
+.page .title {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 3.66em;
+  letter-spacing: 0.05em;
+}
+
 nav {
   position: absolute;
   display: table;
@@ -109,16 +115,85 @@ nav a {
   transform: translate(-50%, -50%);
 }
 
-#about .title {
-  max-width: 800px;
+#contact .title {
+  margin-bottom: 20px;
+}
+#contact_error {
+  width: 90%;
+  max-width: 500px;
+  color: rgba(218,52,77,1);
+  margin: 0 auto 20px;
+}
+#contact_form {
+  width: 90%;
+  max-width: 500px;
   margin: 0 auto;
-  font-size: 3.66em;
-  letter-spacing: 0.05em;
+}
+#contact_form input,
+#contact_form textarea {
+  display: block;
+  width: 100%;
+  padding: 1.5em 1em;
+  border: none;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+#contact_form input:focus,
+#contact_form textarea:focus {
+  outline-width: 0;
+}
+#contact_form input:nth-of-type(1) {
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+#contact_form input:nth-of-type(2) {
+  border-top: 1px solid rgba(200,200,200,1);
+  border-bottom: 1px solid rgba(200,200,200,1);
+}
+#contact_form textarea {
+  height: 200px;
+  vertical-align: top;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  resize: vertical;
+}
+#contact_form input[type="submit"] {
+  width: 150px;
+  display: block;
+  margin: 1em auto 0;
+  padding: 0.5em 1em;
+  font-size: 1.33em;
+  background: rgba(127,176,105,1);
+}
+#contact_form input[type="submit"]:hover {
+  background: rgba(72,72,72,1);
+  color: rgba(255,255,255,1);
 }
 
+#contact_form.submitting input[type="submit"] {
+  display: none;
+}
+#contact_form.submitting:after {
+  content: "SUBMITTING...";
+  font-size: 1.66em;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(127,176,105,1);
+  animation: phase 1s infinite alternate;
+}
+
+@keyframes phase {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 @media screen and (max-width: 768px) {
-  #about .title {
+  .page .title {
     font-size: 7.66vw;
   }
 }
