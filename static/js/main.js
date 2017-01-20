@@ -40,7 +40,17 @@ function main() {
 }
 
 function about() {
-  console.log('hey')
+  var sections = Array.from(document.getElementsByClassName("section"))
+  sections.forEach(function(section, i) {
+    section.btn = section.getElementsByClassName("button")[0]
+    section.btn.addEventListener("click", function(e) {
+      if (section.className.indexOf("active") === -1) {
+        section.className += " active"
+        return
+      }
+      section.className = section.className.replace(/(?:^|\s)active(?!\S)/, "")
+    })
+  })
 }
 
 function contact() {
@@ -85,7 +95,7 @@ function contact() {
           break
       }
 
-      form.className = form.className.replace(/(?:^|\s)submitting(?!\S)/, '')
+      form.className = form.className.replace(/(?:^|\s)submitting(?!\S)/, "")
       error.textContent = errMsg
       event.preventDefault()
     }
