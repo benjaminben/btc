@@ -80,8 +80,12 @@ p, h1, h2, h3, h4 {
 .white {
   color: rgba(255,255,255,1);
 }
+
 .gotham {
   font-family: 'Gotham';
+}
+.gotham-book {
+  font-family: 'Gotham Book';
 }
 
 .pointer {
@@ -101,7 +105,7 @@ p, h1, h2, h3, h4 {
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -121,6 +125,17 @@ nav a {
   display: table-cell;
   vertical-align: middle;
   width: 33.333%;
+  transition: all 0.33s ease;
+}
+nav a:hover {
+  background: rgba(216,216,216,1);
+  color: rgba(72,72,72,1);
+}
+nav a:nth-of-type(1) {
+  border-right: 1px solid rgba(36,36,36,1);
+}
+nav a:nth-of-type(3) {
+  border-left: 1px solid rgba(36,36,36,1);
 }
 #burger {
   position: absolute;
@@ -136,6 +151,17 @@ nav a {
   padding: 60px 0;
 }
 
+#burger_cont {
+  display: block;
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+}
+#burger_cont img {
+  width: 100%;
+  height: auto;
+}
+
 #about .section {
   width: 90%;
   max-width: 400px;
@@ -147,12 +173,13 @@ nav a {
   margin-bottom: 1em;
 }
 #about .section .header h2 {
-  font-size: 3em;
+  font-size: 2em;
   padding-left: 15px;
 }
 
 #about .section .text {
   line-height: 1.5em;
+  padding-bottom: 40px;
   display: none;
 }
 
@@ -211,6 +238,7 @@ nav a {
   padding: 1.5em 1em;
   border: none;
   font-size: 1em;
+  font-family: 'Gotham Book';
   box-sizing: border-box;
 }
 #contact_form input:focus,
@@ -271,9 +299,9 @@ nav a {
   .page .title {
     font-size: 7.66vw;
   }
-  #about .section .header h2 {
+  /*#about .section .header h2 {
     font-size: 8vw;
-  }
+  }*/
 }
 
 @media screen and (max-width: 480px) {
@@ -288,6 +316,8 @@ nav a {
     padding: 2.66em 0;
     width: 100%;
     box-sizing: border-box;
+    border-left: none;
+    border-right: none;
   }
   nav a:nth-of-type(2) {
     border-top: 1px solid rgba(36,36,36,1);
