@@ -156,10 +156,12 @@ nav a:nth-of-type(3) {
   width: 90%;
   max-width: 500px;
   margin: 40px auto;
+  height: 800px;
 }
-#burger_cont img {
+#burger_cont svg {
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 #about .section {
@@ -170,11 +172,13 @@ nav a:nth-of-type(3) {
 }
 
 #about .section .header {
+  width: 100%;
   margin-bottom: 1em;
+  text-align: center;
 }
 #about .section .header h2 {
   font-size: 2em;
-  padding-left: 15px;
+  padding: 15px;
 }
 
 #about .section .text {

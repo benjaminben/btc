@@ -40,6 +40,8 @@ function main() {
 }
 
 function about() {
+  whataBurger()
+
   var sections = Array.from(document.getElementsByClassName("section"))
   sections.forEach(function(section, i) {
     section.btn = section.getElementsByClassName("button")[0]
@@ -100,6 +102,37 @@ function contact() {
       event.preventDefault()
     }
   })
+}
+
+function whataBurger() {
+  var bites = [
+    document.getElementById("bun_top"),
+    document.getElementById("fixins"),
+    document.getElementById("patty"),
+    document.getElementById("bun_bottom"),
+  ]
+  var scroller = new ScrollMagic.Controller()
+
+  bites.forEach(function(b,i) {
+    var scene = new ScrollMagic.Scene({
+      triggerElement: b,
+      triggerHook: 1,
+      duration: '100%'
+    })
+    .setTween(TweenMax.from(b, 1, {
+      y: "100px",
+    }))
+    // .addIndicators({
+    //   name: "fadie",
+    //   colorTrigger: "black",
+    //   colorStart: "green",
+    //   colorEnd: "red",
+    // })
+    .addTo(scroller)
+
+    console.log(scene)
+  })
+
 }
 
 function testies() {
