@@ -105,33 +105,58 @@ function contact() {
 }
 
 function whataBurger() {
+  var bt
+  var burger = document.getElementById('burger_svg')
   var bites = [
     document.getElementById("bun_top"),
     document.getElementById("fixins"),
     document.getElementById("patty"),
     document.getElementById("bun_bottom"),
   ]
-  var scroller = new ScrollMagic.Controller()
+
+  bt = new TimelineMax()
 
   bites.forEach(function(b,i) {
-    var scene = new ScrollMagic.Scene({
-      triggerElement: b,
-      triggerHook: 1,
-      duration: '100%'
-    })
-    .setTween(TweenMax.from(b, 1, {
-      y: "100px",
-    }))
-    // .addIndicators({
-    //   name: "fadie",
-    //   colorTrigger: "black",
-    //   colorStart: "green",
-    //   colorEnd: "red",
-    // })
-    .addTo(scroller)
-
-    console.log(scene)
+    var tween = new TweenMax(b, 1, {y: -100})
+    bt.add(tween, 1*i)
   })
+
+  var scroller = new ScrollMagic.Controller()
+
+  var scene = new ScrollMagic.Scene({
+    // triggerElement: "#burger_trigger",
+    triggerHook: 1,
+    duration: "100%",
+    setPin: "#burger_cont"
+  })
+  .addIndicators({
+    name: "burger?",
+    colorTrigger: "black",
+    colorStart: "green",
+    colorEnd: "red",
+  })
+  .setTween(bt)
+  .addTo(scroller)
+
+  // bites.forEach(function(b,i) {
+  //   var scene = new ScrollMagic.Scene({
+  //     triggerElement: b,
+  //     triggerHook: 1,
+  //     duration: '100%'
+  //   })
+  //   .setTween(TweenMax.from(b, 1, {
+  //     y: "100px",
+  //   }))
+  //   // .addIndicators({
+  //   //   name: "fadie",
+  //   //   colorTrigger: "black",
+  //   //   colorStart: "green",
+  //   //   colorEnd: "red",
+  //   // })
+  //   .addTo(scroller)
+
+  //   console.log(scene)
+  // })
 
 }
 

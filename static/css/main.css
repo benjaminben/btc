@@ -16,6 +16,16 @@ p, h1, h2, h3, h4 {
   margin: 0;
 }
 
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+
 .flex {
   display: flex;
 }
@@ -153,15 +163,18 @@ nav a:nth-of-type(3) {
 
 #burger_cont {
   display: block;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  text-align: center;
   margin: 40px auto;
-  height: 800px;
 }
 #burger_cont svg {
-  width: 100%;
+  width: 90%;
+  max-width: 500px;
   height: auto;
   overflow: visible;
+}
+#burger_trigger {
+  top: 50%;
 }
 
 #about .section {
