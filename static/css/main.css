@@ -170,7 +170,18 @@ nav a:nth-of-type(3) {
 }
 #burger_cont.now {
   position: absolute;
+  bottom: 0;
 }
+/*#burger_scroller.now
+#burger_cont {
+  position: absolute!important;
+  bottom: 0!important;
+  top:auto!important;
+}
+#burger_scroller.now
+.scrollmagic-pin-spacer {
+  position: static!important;
+}*/
 #burger_cont svg {
   width: 90%;
   max-width: 500px;

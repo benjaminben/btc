@@ -106,6 +106,7 @@ function contact() {
 
 function whataBurger() {
   var bt
+  var about_title = document.getElementById("about_title")
   var burger_scroller = document.getElementById("burger_scroller")
   var burger = document.getElementById("burger_svg")
   var bites = [
@@ -119,10 +120,10 @@ function whataBurger() {
 
   bites.forEach(function(b,i,a) {
     var tween1 = new TweenMax(b, 1, {y: -100})
-    bt.add(tween1, 1*i)
+    bt.add(tween1, 1*(i+1))
     bt.add(new TweenMax(b, 1, {y: 0}), 1*a.length)
   })
-  // bt.add(new TweenMax(burger, 1, {y: 100}), 1*bites.length)
+  bt.add(new TweenMax.to(about_title, 1, {autoAlpha: 0}), 0)
 
   var getScrollHeight = function() {
     return(
@@ -138,8 +139,9 @@ function whataBurger() {
     triggerElement: "#burger_trigger",
     triggerHook: 1,
     duration: getScrollHeight,
-    setPin: "#burger_cont"
   })
+  // .setClassToggle("#burger_cont", "fixed")
+  .setPin("#burger_cont")
   .addIndicators({
     name: "burger?",
     colorTrigger: "black",
@@ -153,7 +155,7 @@ function whataBurger() {
     triggerElement: "#burger_trigger2",
     triggerHook: 1,
   })
-  .setClassToggle("#burger_cont", "now")
+  .setClassToggle("#burger_scroller", "now")
   .addIndicators({
     name: "now?",
     colorTrigger: "white",
