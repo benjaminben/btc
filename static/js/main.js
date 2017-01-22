@@ -106,7 +106,8 @@ function contact() {
 
 function whataBurger() {
   var bt
-  var burger = document.getElementById('burger_svg')
+  var burger_scroller = document.getElementById("burger_scroller")
+  var burger = document.getElementById("burger_svg")
   var bites = [
     document.getElementById("bun_top"),
     document.getElementById("fixins"),
@@ -116,17 +117,27 @@ function whataBurger() {
 
   bt = new TimelineMax()
 
-  bites.forEach(function(b,i) {
-    var tween = new TweenMax(b, 1, {y: -100})
-    bt.add(tween, 1*i)
+  bites.forEach(function(b,i,a) {
+    var tween1 = new TweenMax(b, 1, {y: -100})
+    bt.add(tween1, 1*i)
+    bt.add(new TweenMax(b, 1, {y: 0}), 1*a.length)
   })
+  // bt.add(new TweenMax(burger, 1, {y: 100}), 1*bites.length)
+
+  var getScrollHeight = function() {
+    return(
+      burger_scroller.clientHeight +
+      burger_scroller.offsetTop -
+      window.innerHeight
+    )
+  }
 
   var scroller = new ScrollMagic.Controller()
 
   var scene = new ScrollMagic.Scene({
-    // triggerElement: "#burger_trigger",
+    triggerElement: "#burger_trigger",
     triggerHook: 1,
-    duration: "100%",
+    duration: getScrollHeight,
     setPin: "#burger_cont"
   })
   .addIndicators({
@@ -136,6 +147,19 @@ function whataBurger() {
     colorEnd: "red",
   })
   .setTween(bt)
+  .addTo(scroller)
+
+  var scene2 = new ScrollMagic.Scene({
+    triggerElement: "#burger_trigger2",
+    triggerHook: 1,
+  })
+  .setClassToggle("#burger_cont", "now")
+  .addIndicators({
+    name: "now?",
+    colorTrigger: "white",
+    colorStart: "purple",
+    colorEnd: "blue",
+  })
   .addTo(scroller)
 
   // bites.forEach(function(b,i) {

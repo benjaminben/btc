@@ -165,16 +165,24 @@ nav a:nth-of-type(3) {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 40px auto;
+  margin: 40px auto 0;
+  bottom: 0;
+}
+#burger_cont.now {
+  position: absolute;
 }
 #burger_cont svg {
   width: 90%;
   max-width: 500px;
   height: auto;
   overflow: visible;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 #burger_trigger {
-  top: 50%;
+  bottom: 0;
+}
+#burger_trigger2 {
+  bottom: 0;
 }
 
 #about .section {
@@ -257,6 +265,8 @@ nav a:nth-of-type(3) {
   font-size: 1em;
   font-family: 'Gotham Book';
   box-sizing: border-box;
+  -webkit-border-radius:0px;
+  -webkit-appearance: none;
 }
 #contact_form input:focus,
 #contact_form textarea:focus {
@@ -316,9 +326,6 @@ nav a:nth-of-type(3) {
   .page .title {
     font-size: 7.66vw;
   }
-  /*#about .section .header h2 {
-    font-size: 8vw;
-  }*/
 }
 
 @media screen and (max-width: 480px) {
