@@ -189,6 +189,9 @@ nav a:nth-of-type(3) {
   overflow: visible;
   -webkit-transform: translate3d(0, 0, 0);
 }
+#burger_cont svg .soundbite {
+  transform-origin: 50%;
+}
 #burger_trigger {
   bottom: 0;
 }

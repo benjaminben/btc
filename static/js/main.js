@@ -115,13 +115,32 @@ function whataBurger() {
     document.getElementById("patty"),
     document.getElementById("bun_bottom"),
   ]
+  var soundbites = [
+    document.getElementById("learn"),
+    document.getElementById("the_whole"),
+    document.getElementById("stack"),
+  ]
 
   bt = new TimelineMax()
 
   bites.forEach(function(b,i,a) {
     var tween1 = new TweenMax(b, 1, {y: -100})
     bt.add(tween1, 1*(i+1))
-    bt.add(new TweenMax(b, 1, {y: 0}), 1*a.length)
+    var tween2 = new TweenMax(b, 1, {y: 0})
+    bt.add(tween2, 1*a.length)
+  })
+  soundbites.forEach(function(sb,i,a) {
+    var tween1 = new TweenMax.fromTo(sb, 1,
+      {yPercent: 0, autoAlpha: 0, scale: 1, transformOrigin: "center"},
+      {y: -66, autoAlpha: 1, scale: 1.2}
+    )
+    var tween2 = new TweenMax.to(sb, 0.5, {
+      yPercent: -100,
+      autoAlpha: 0,
+      scale: 0.8,
+    })
+    bt.add(tween1, 1*(i+1))
+    bt.add(tween2, 1*(i+2))
   })
   bt.add(new TweenMax.to(about_title, 1, {autoAlpha: 0}), 0)
 
@@ -163,26 +182,6 @@ function whataBurger() {
     colorEnd: "blue",
   })
   .addTo(scroller)
-
-  // bites.forEach(function(b,i) {
-  //   var scene = new ScrollMagic.Scene({
-  //     triggerElement: b,
-  //     triggerHook: 1,
-  //     duration: '100%'
-  //   })
-  //   .setTween(TweenMax.from(b, 1, {
-  //     y: "100px",
-  //   }))
-  //   // .addIndicators({
-  //   //   name: "fadie",
-  //   //   colorTrigger: "black",
-  //   //   colorStart: "green",
-  //   //   colorEnd: "red",
-  //   // })
-  //   .addTo(scroller)
-
-  //   console.log(scene)
-  // })
 
 }
 
