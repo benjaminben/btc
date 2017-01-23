@@ -117,9 +117,9 @@ p, h1, h2, h3, h4 {
 nav {
   position: fixed;
   display: table;
+  display: flex;
   table-layout: fixed;
   width: 100%;
-  background: rgba(72,72,72,1);
   transform: translate(0,-100%);
   transition: transform 0.33s ease;
   z-index: 1;
@@ -129,17 +129,47 @@ nav.active {
 }
 nav a {
   color: white;
+  background: rgba(72,72,72,1);
   text-decoration: none;
   flex: 1;
-  height: 60px;
   display: table-cell;
   vertical-align: middle;
   width: 33.333%;
+}
+nav a .text {
+  padding: 1em 0;
+  font-size: 1.33em;
+  letter-spacing: 0.1em;
+  font-family: 'Gotham Book';
+  transition: all 0.33s ease;
+}
+nav a .pic {
+  height: 80px;
+  padding: 1.33em 0 0;
+}
+nav a .pic svg {
+  height: 100%;
+  fill: white;
+  stroke: white;
   transition: all 0.33s ease;
 }
 nav a:hover {
   background: rgba(216,216,216,1);
   color: rgba(72,72,72,1);
+}
+nav a svg,
+nav a svg .cls-1,
+nav a svg .cls-2 {
+  stroke: white;
+  fill: none;
+}
+nav a:hover svg,
+nav a:hover svg .cls-1,
+nav a:hover svg .cls-2 {
+  stroke: rgba(72,72,72,1);
+}
+nav a:nth-of-type(1):hover svg {
+  fill: rgba(72,72,72,1);
 }
 nav a:nth-of-type(1) {
   border-right: 1px solid rgba(36,36,36,1);
@@ -327,10 +357,11 @@ nav a:nth-of-type(3) {
   padding: 0.5em 1em;
   font-size: 1.33em;
   background: rgba(127,176,105,1);
+  transition: all 0.15s ease;
 }
 #contact_form input[type="submit"]:hover {
-  background: rgba(72,72,72,1);
-  color: rgba(255,255,255,1);
+  background: rgba(245, 221, 144,1);
+  color: rgba(72,72,72,1);
 }
 
 #contact_form.submitting input[type="submit"] {
@@ -366,17 +397,35 @@ nav a:nth-of-type(3) {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   nav {
-    display: flex;
-    flex-flow: column;
-    transition: transform 0.33s ease-in;
+    display: block;
+    height: 100vh;
+    /*transform: translate(0,0);*/
+    transition: none;
+  }
+  nav.active {
+    overflow: scroll;
+  }
+  nav.active a {
+    display: block;
+    /*opacity: 1;*/
+  }
+  nav.active #burger {
+    top: 0;
+  }
+  .nav a .text {
+    display: block;
+    padding: 2em 0;
+  }
+  .nav a .pic {
+    display: block;
+    padding: 2em 0 0;
   }
   nav a {
-    height: 0px;
-    line-height: 0px;
-    padding: 2.66em 0;
     width: 100%;
+    /*opacity: 0;*/
+    /*transition: opacity 0.33s ease-in;*/
     box-sizing: border-box;
     border-left: none;
     border-right: none;
