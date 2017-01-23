@@ -193,10 +193,12 @@ nav a:nth-of-type(3) {
   width: 90%;
   max-width: 600px;
   margin: 60px auto 0;
-  padding: 1em;
+  padding: 1em 0;
   font-size: 1.2em;
   letter-spacing: 0.1em;
   line-height: 1.5em;
+  /*text-align: justify;*/
+  text-align-last: center;
 }
 #analogy:before,
 #analogy:after {
@@ -221,7 +223,8 @@ nav a:nth-of-type(3) {
   width: 90%;
   max-width: 400px;
   margin: 0 auto;
-  text-align: justify;
+  /*text-align: justify;*/
+  text-align-last: center;
 }
 #about .section .header {
   width: 100%;
