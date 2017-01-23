@@ -107,6 +107,7 @@ function contact() {
 function whataBurger() {
   var bt
   var about_title = document.getElementById("about_title")
+  var about_content = document.getElementById("about_content")
   var burger_scroller = document.getElementById("burger_scroller")
   var burger = document.getElementById("burger_svg")
   var bites = [
@@ -144,11 +145,14 @@ function whataBurger() {
   })
   bt.add(new TweenMax.to(about_title, 1, {autoAlpha: 0}), 0)
 
+  var initClientHeight = about_content.clientHeight * 2 + 40
+
   var getScrollHeight = function() {
     return(
-      burger_scroller.clientHeight +
-      burger_scroller.offsetTop -
-      window.innerHeight
+        (burger_scroller.clientHeight
+              + burger_scroller.offsetTop)
+        -
+        initClientHeight
     )
   }
 
@@ -161,12 +165,12 @@ function whataBurger() {
   })
   // .setClassToggle("#burger_cont", "fixed")
   .setPin("#burger_cont")
-  .addIndicators({
-    name: "burger?",
-    colorTrigger: "black",
-    colorStart: "green",
-    colorEnd: "red",
-  })
+  // .addIndicators({
+  //   name: "burger?",
+  //   colorTrigger: "black",
+  //   colorStart: "green",
+  //   colorEnd: "red",
+  // })
   .setTween(bt)
   .addTo(scroller)
 
@@ -175,12 +179,12 @@ function whataBurger() {
     triggerHook: 1,
   })
   .setClassToggle("#burger_scroller", "now")
-  .addIndicators({
-    name: "now?",
-    colorTrigger: "white",
-    colorStart: "purple",
-    colorEnd: "blue",
-  })
+  // .addIndicators({
+  //   name: "now?",
+  //   colorTrigger: "white",
+  //   colorStart: "purple",
+  //   colorEnd: "blue",
+  // })
   .addTo(scroller)
 
 }
