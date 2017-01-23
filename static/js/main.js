@@ -109,7 +109,7 @@ function whataBurger() {
   var about_title = document.getElementById("about_title")
   var about_content = document.getElementById("about_content")
   var burger_scroller = document.getElementById("burger_scroller")
-  var burger = document.getElementById("burger_svg")
+  var burger = document.getElementById("burger_cont")
   var bites = [
     document.getElementById("bun_top"),
     document.getElementById("fixins"),
@@ -145,14 +145,14 @@ function whataBurger() {
   })
   bt.add(new TweenMax.to(about_title, 1, {autoAlpha: 0}), 0)
 
-  var initClientHeight = about_content.clientHeight * 2 + 40
+  // var initContentHeight = burger.clientHeight * 2 + 40
 
   var getScrollHeight = function() {
     return(
         (burger_scroller.clientHeight
               + burger_scroller.offsetTop)
         -
-        initClientHeight
+        (burger.clientHeight * 1.5)
     )
   }
 
@@ -164,7 +164,7 @@ function whataBurger() {
     duration: getScrollHeight,
   })
   // .setClassToggle("#burger_cont", "fixed")
-  .setPin("#burger_cont")
+  .setPin(burger)
   // .addIndicators({
   //   name: "burger?",
   //   colorTrigger: "black",
