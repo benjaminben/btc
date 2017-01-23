@@ -145,8 +145,6 @@ function whataBurger() {
   })
   bt.add(new TweenMax.to(about_title, 1, {autoAlpha: 0}), 0)
 
-  // var initContentHeight = burger.clientHeight * 2 + 40
-
   var getScrollHeight = function() {
     return(
         (burger_scroller.clientHeight
@@ -163,14 +161,7 @@ function whataBurger() {
     triggerHook: 1,
     duration: getScrollHeight,
   })
-  // .setClassToggle("#burger_cont", "fixed")
   .setPin(burger)
-  // .addIndicators({
-  //   name: "burger?",
-  //   colorTrigger: "black",
-  //   colorStart: "green",
-  //   colorEnd: "red",
-  // })
   .setTween(bt)
   .addTo(scroller)
 
@@ -179,12 +170,6 @@ function whataBurger() {
     triggerHook: 1,
   })
   .setClassToggle("#burger_scroller", "now")
-  // .addIndicators({
-  //   name: "now?",
-  //   colorTrigger: "white",
-  //   colorStart: "purple",
-  //   colorEnd: "blue",
-  // })
   .addTo(scroller)
 
 }
