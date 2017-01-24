@@ -135,13 +135,13 @@ nav a {
   display: table-cell;
   vertical-align: middle;
   width: 33.333%;
+  transition: all 0.165s ease;
 }
 nav a .text {
   padding: 1em 0;
   font-size: 1.33em;
   letter-spacing: 0.1em;
   font-family: 'Gotham Book';
-  transition: all 0.33s ease;
 }
 nav a .pic {
   height: 80px;
@@ -162,6 +162,7 @@ nav a svg .cls-1,
 nav a svg .cls-2 {
   stroke: white;
   fill: none;
+  transition: all 0.33s ease;
 }
 nav a:hover svg,
 nav a:hover svg .cls-1,
@@ -200,7 +201,6 @@ nav a:nth-of-type(3) {
 }
 #burger_cont.now {
   position: absolute;
-  bottom: 0;
 }
 #burger_cont svg {
   width: 90%;
@@ -272,7 +272,7 @@ nav a:nth-of-type(3) {
   display: none;
 }
 #about .section .button .pupil {
-  transform-origin: 50% 50%;
+  transform-origin: 14px 14px;
   transition: transform 0.33s ease;
 }
 #about .section .button .top {
@@ -360,8 +360,7 @@ nav a:nth-of-type(3) {
   transition: all 0.15s ease;
 }
 #contact_form input[type="submit"]:hover {
-  background: rgba(245, 221, 144,1);
-  color: rgba(72,72,72,1);
+  background: rgba(64, 88, 53,1);
 }
 
 #contact_form.submitting input[type="submit"] {
