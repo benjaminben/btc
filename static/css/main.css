@@ -188,7 +188,7 @@ nav a:nth-of-type(3) {
   margin: 0 auto;
 }
 
-#about .content {
+#about_content {
   padding: 30px 0 60px;
 }
 
@@ -298,7 +298,15 @@ nav a:nth-of-type(3) {
 #about .section.active .button .base {
   fill: rgba(72,72,72,1);
 }
-#about .section.active .text {
+
+#about_content .section.active {
+  padding: 0 0 1px;
+  /* ^ Safari BS: causes repaint of entire
+  .section which fixes the issue of these element
+  disappearing apparently due to setPin() in
+  ScrollMagic... */
+}
+#about_content .section.active .text {
   display: block;
 }
 
@@ -391,7 +399,7 @@ nav a:nth-of-type(3) {
   }
 }
 @media screen and (max-width: 400px) {
-  #about .section .header h2 {
+  #about_content .section .header h2 {
     font-size: 1.33em;
   }
 }
