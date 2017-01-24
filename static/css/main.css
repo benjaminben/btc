@@ -314,6 +314,19 @@ nav a:nth-of-type(3) {
   display: block;
 }
 
+#about_content .section .img-cont {
+  margin-top: 2em;
+}
+#about_content .section .img-cont img {
+  height: auto;
+  width: auto;
+  max-width: 40%;
+  max-height: 60px;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 10px;
+}
+
 #contact .title {
   margin-bottom: 20px;
 }
