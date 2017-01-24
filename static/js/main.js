@@ -47,9 +47,6 @@ function about() {
   sections.forEach(function(section, i) {
     section.btn = section.getElementsByClassName("button")[0]
     section.btn.addEventListener("click", function(e) {
-      // eye_cont.style.display = "inline-block"
-      // eye_cont.offsetHeight
-      // eye_cont.style.display = "block"
       if (section.className.indexOf("active") === -1) {
         section.className += " active"
         return

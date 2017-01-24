@@ -74,5 +74,5 @@ func main() {
   http.HandleFunc("/", handleAbout)
   http.HandleFunc("/contact", handleContact)
   http.HandleFunc("/hype", handleTesties)
-  http.ListenAndServe(":8080", nil)
+  http.ListenAndServe(":7000", nil)
 }

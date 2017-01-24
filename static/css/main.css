@@ -144,7 +144,7 @@ nav a .text {
   font-family: 'Gotham Book';
 }
 nav a .pic {
-  height: 80px;
+  height: 70px;
   padding: 1.33em 0 0;
 }
 nav a .pic svg {
@@ -163,6 +163,9 @@ nav a svg .cls-2 {
   stroke: white;
   fill: none;
   transition: all 0.33s ease;
+}
+nav a svg .cls-1 {
+  stroke-width: 2px;
 }
 nav a:hover svg,
 nav a:hover svg .cls-1,
@@ -204,6 +207,7 @@ nav a:nth-of-type(3) {
 }
 #burger_cont svg {
   width: 90%;
+  height: 100%;
   max-width: 500px;
   height: auto;
   overflow: visible;
@@ -332,6 +336,7 @@ nav a:nth-of-type(3) {
   display: block;
   width: 100%;
   padding: 1.5em 1em;
+  margin: 0;
   border: none;
   font-size: 1em;
   font-family: 'Gotham Book';
@@ -398,17 +403,11 @@ nav a:nth-of-type(3) {
     font-size: 7.66vw;
   }
 }
-@media screen and (max-width: 400px) {
-  #about_content .section .header h2 {
-    font-size: 1.33em;
-  }
-}
 
 @media screen and (max-width: 650px) {
   nav {
     display: block;
     height: 100vh;
-    /*transform: translate(0,0);*/
     transition: none;
   }
   nav.active {
@@ -440,5 +439,11 @@ nav a:nth-of-type(3) {
   nav a:nth-of-type(2) {
     border-top: 1px solid rgba(36,36,36,1);
     border-bottom: 1px solid rgba(36,36,36,1);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #about_content .section .header h2 {
+    font-size: 1.33em;
   }
 }
