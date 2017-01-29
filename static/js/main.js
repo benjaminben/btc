@@ -45,7 +45,7 @@ function about() {
   var sections = Array.from(document.getElementsByClassName("section"))
   var eye_cont = document.getElementById("about_content")
   sections.forEach(function(section, i) {
-    section.btn = section.getElementsByClassName("button")[0]
+    section.btn = section.getElementsByClassName("header")[0]
     section.btn.addEventListener("click", function(e) {
       if (section.className.indexOf("active") === -1) {
         section.className += " active"
