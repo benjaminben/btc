@@ -1,6 +1,7 @@
 package main
 
 import(
+  "fmt"
   "net/http"
   "html/template"
   "io"
@@ -49,7 +50,18 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
     subject := req.Form.Get("subject")
     body := req.Form.Get("body")
 
-    SendContact(sender, subject, body)
+    confMsg := fmt.Sprintf("" +
+    "Hi there, thanks for reaching out ^__^\r\n" +
+    "Please expect a human response shortly. Meanwhile, here are some pretty good quotes about learning:\r\n\r\n" +
+    "\"An investment in knowledge pays the best interest.\" - Benjamin Franklin\r\n\r\n" +
+    "\"Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.\" - Albert Einstein\r\n\r\n" +
+    "\"Knowing is not enough, we must apply. Willing is not enough, we must do.\" - Bruce Lee\r\n\r\n\r\n" +
+    "*** This Is An Automated Response To: ***\r\n" +
+    "Address: %s\r\n" +
+    "Subject: %s\r\n" +
+    "Body: %s\r\n", sender, subject, body)
+
+    SendContact(sender, subject, body, confMsg)
     http.Redirect(res, req, "/contact", http.StatusSeeOther)
   }
 }

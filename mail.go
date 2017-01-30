@@ -9,7 +9,7 @@ import(
 const emailAdd string = btc_keys.EmailAdd
 const emailPass string = btc_keys.EmailPass
 
-func SendContact(sender string, subject string, body string) {
+func SendContact(sender string, subject string, body string, res string) {
   admin := emailAdd
   password := emailPass
 
@@ -36,19 +36,19 @@ func SendContact(sender string, subject string, body string) {
     return
   }
 
-  SendContactConf(sender)
+  SendContactConf(sender, subject, res)
   log.Print("contact sent")
 }
 
-func SendContactConf(to string) {
+func SendContactConf(to string, subject string, body string) {
   from := emailAdd
   password := emailPass
 
   msg := "" +
     "From: " + from + "\r\n" +
     "To: " + to + "\r\n" +
-    "Subject: Contact Confirmation | Ben Teaches Code\r\n\r\n" +
-    "Hi friend, thanks for reaching out\r\n"
+    "Subject: " + subject + "\r\n\r\n" +
+    body + "\r\n"
 
   auth := smtp.PlainAuth(
     "",
