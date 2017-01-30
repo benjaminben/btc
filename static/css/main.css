@@ -97,6 +97,14 @@ p, h1, h2, h3, h4 {
 .gotham-book {
   font-family: 'Gotham Book';
 }
+.gotham-bold {
+  font-family: 'Gotham';
+  font-weight: bold;
+}
+.gotham-black {
+  font-family: 'Gotham';
+  font-weight: 500;
+}
 
 .pointer {
   cursor: pointer;
@@ -107,7 +115,7 @@ p, h1, h2, h3, h4 {
   padding-top: 100px;
 }
 
-.page .title {
+.page-title {
   max-width: 800px;
   margin: 0 auto;
   font-size: 3.66em;
@@ -231,7 +239,6 @@ nav a:nth-of-type(3) {
   font-size: 1.2em;
   letter-spacing: 0.1em;
   line-height: 1.5em;
-  /*text-align: justify;*/
   text-align-last: center;
 }
 #analogy:before,
@@ -257,14 +264,13 @@ nav a:nth-of-type(3) {
   width: 90%;
   max-width: 400px;
   margin: 0 auto;
-  /*text-align: justify;*/
   text-align-last: center;
 }
 #about .section .header {
   width: 100%;
   margin-bottom: 1em;
   text-align: center;
-  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #about .section .header h2 {
   font-size: 2em;
@@ -412,8 +418,68 @@ nav a:nth-of-type(3) {
   }
 }
 
+
+#hype_content {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto 80px;
+}
+#hype_content .testy {
+  margin-bottom: 35px;
+}
+#hype_content .testy:before {
+  content: '';
+  position: relative;
+  display: block;
+  width: 100%;
+  background: white;
+  height: 2px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+#hype_content .testy:first-child:before {
+  content: none;
+}
+#hype_content .testy .quote {
+  line-height: 1.5em;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+#hype_content .testy .quote:before {
+  content: '“';
+  font-size: 2em;
+  font-family: 'Gotham';
+  font-weight: 500;
+  margin-right: 0.5em;
+}
+#hype_content .testy .name {
+  font-size: 2em;
+}
+#hype_content .testy .title {
+  max-width: 300px;
+  padding: 5px 0;
+  font-size: 0.9em;
+}
+#hype_content .testy .location {
+  font-size: 0.8em;
+}
+#hype_content .testy:nth-of-type(2n) .id {
+  text-align: right;
+}
+#hype_content .testy .id a {
+  color: white;
+  text-decoration: none;
+}
+#hype_content .testy .id a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media screen and (max-width: 768px) {
-  .page .title {
+  .page-title {
     font-size: 7.66vw;
   }
 }
