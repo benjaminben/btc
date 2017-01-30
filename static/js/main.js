@@ -49,6 +49,10 @@ function about() {
     section.btn.addEventListener("click", function(e) {
       if (section.className.indexOf("active") === -1) {
         section.className += " active"
+        if (window.innerWidth >= 1300) {
+          var y = window.pageYOffset + section.clientHeight
+          window.scroll(0, y)
+        }
         return
       }
       section.className = section.className.replace(/(?:^|\s)active(?!\S)/, "")
