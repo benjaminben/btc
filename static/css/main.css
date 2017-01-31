@@ -586,16 +586,20 @@ nav a:nth-of-type(3) {
   }
 }
 
+/*Possible large desktop?*/
 @media screen and (min-width: 1300px) {
   #about_content {
     display: flex;
-    justify-content: space-around;
-    max-width: 1250px;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1300px;
     margin: 0 auto;
   }
   #about_content .section {
     display: inline-block;
     vertical-align: top;
+    max-width: 360px;
+    margin: 0;
   }
   #about_content .section:nth-of-type(1) {
     order: 2;
