@@ -127,6 +127,16 @@ function whataBurger() {
     document.getElementById("stack"),
   ]
 
+  var scroll_cta = document.getElementById("scroll_cta")
+  var scrollCTA = function() {
+    scroll_cta.className += " inactive"
+    setTimeout(function(){
+      burger.removeChild(scroll_cta)
+    }, 333)
+    window.removeEventListener("scroll", scrollCTA)
+  }
+  window.addEventListener("scroll", scrollCTA)
+
   bt = new TimelineMax()
 
   bites.forEach(function(b,i,a) {
