@@ -67,6 +67,8 @@ function contact() {
   var body = document.getElementById("contact_body")
   var error = document.getElementById("contact_error")
 
+  document.getElementById("contact_direct").setAttribute("href", "mailto:info@benteachescode.com")
+
   form.addEventListener("submit", function(event) {
     form.className += " submitting"
 

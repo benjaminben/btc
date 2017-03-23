@@ -491,6 +491,18 @@ nav a:nth-of-type(3) {
   -webkit-animation: phase 1s infinite alternate;
           animation: phase 1s infinite alternate;
 }
+#contact .footer {
+  color: white;
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+#contact .footer h1 {
+  font-size: 1.66em;
+  margin-bottom: 0.1em;
+}
+#contact .footer a {
+  color: white;
+}
 
 #hype_content {
   width: 90%;
@@ -730,6 +742,13 @@ nav a:nth-of-type(3) {
 @media screen and (max-width: 480px) {
   #about_content .section .header h2 {
     font-size: 1.33em;
+  }
+
+  #contact .footer h1 {
+    font-size: 1.33em;
+  }
+  #contact .footer a {
+    font-size: 0.8em;
   }
 }
 
