@@ -10,7 +10,7 @@ const emailAdd string = btc_keys.EmailAdd
 const emailPass string = btc_keys.EmailPass
 
 func SendContact(sender string, subject string, body string, res string) {
-  log.Print("incoming contact", sender, subject, body)
+  log.Print("incoming contact: %s; %s; %s", sender, subject, body)
   admin := emailAdd
   password := emailPass
 
