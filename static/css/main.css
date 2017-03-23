@@ -491,6 +491,13 @@ nav a:nth-of-type(3) {
   -webkit-animation: phase 1s infinite alternate;
           animation: phase 1s infinite alternate;
 }
+#contact a {
+  color: white;
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
 
 #hype_content {
   width: 90%;

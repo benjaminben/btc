@@ -9,8 +9,8 @@ import(
 const emailAdd string = btc_keys.EmailAdd
 const emailPass string = btc_keys.EmailPass
 
-func SendContact(sender string, subject string, body string, res string) {
-  log.Print("incoming contact", sender, subject, body)
+func SendContact(sender string, subject string, body string, res string) error {
+  log.Printf("incoming contact: %s; %s; %s", sender, subject, body)
   admin := emailAdd
   password := emailPass
 
@@ -34,11 +34,12 @@ func SendContact(sender string, subject string, body string, res string) {
   )
   if err != nil {
     log.Printf("Error: %s", err)
-    return
+    return err
   }
 
   SendContactConf(sender, subject, res)
   log.Print("contact sent")
+  return nil
 }
 
 func SendContactConf(to string, subject string, body string) {

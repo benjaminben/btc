@@ -68,6 +68,7 @@ function contact() {
   var error = document.getElementById("contact_error")
 
   form.addEventListener("submit", function(event) {
+    event.preventDefault()
     form.className += " submitting"
 
     try {
@@ -104,8 +105,23 @@ function contact() {
 
       form.className = form.className.replace(/(?:^|\s)submitting(?!\S)/, "")
       error.textContent = errMsg
-      event.preventDefault()
+      return
     }
+    console.log(event.target)
+    var xhr = new XMLHttpRequest()
+    xhr.open("POST", "/contact", true)
+    xhr.onreadystatechange = function(e) {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status >= 400) {
+          console.log("errord", xhr.status)
+        }
+        else {
+          console.log("cool", xhr.status)
+        }
+      }
+    }
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send(new FormData(event.target))
   })
 }
 

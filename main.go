@@ -5,6 +5,8 @@ import(
   "net/http"
   "html/template"
   "io"
+  // "io/ioutil"
+  // "log"
 )
 
 type Page struct {
@@ -45,6 +47,11 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
   if req.Method == "GET" {
     executor.ExecuteTemplate(res, "contact", &Page{Title: "Contact"})
   } else {
+    // bod, arrg := ioutil.ReadAll(req.Body)
+    // if arrg != nil {
+    //   panic(arrg)
+    // }
+    // log.Println(string(bod))
     req.ParseForm()
     sender := req.Form.Get("email")
     subject := req.Form.Get("subject")
@@ -61,7 +68,11 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
     "Subject: %s\r\n" +
     "Body: %s\r\n", sender, subject, body)
 
-    SendContact(sender, subject, body, confMsg)
+    err := SendContact(sender, subject, body, confMsg)
+    if (err != nil) {
+      http.Error(res, err.Error(), http.StatusInternalServerError)
+      return
+    }
     http.Redirect(res, req, "/contact", http.StatusSeeOther)
   }
 }
