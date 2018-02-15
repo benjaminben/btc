@@ -273,6 +273,7 @@ nav a:nth-of-type(3) {
 #burger_cont {
   display: block;
   width: 100%;
+  /*max-height: 50vh;*/
   text-align: center;
   margin: 40px auto 0;
   bottom: 0;
@@ -284,6 +285,7 @@ nav a:nth-of-type(3) {
   width: 90%;
   height: 100%;
   max-width: 500px;
+  /*max-height: 50vh;*/
   height: auto;
   overflow: visible;
   -webkit-transform: translate3d(0, 0, 0);
