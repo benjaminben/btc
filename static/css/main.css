@@ -575,14 +575,11 @@ nav a:nth-of-type(3) {
 #ben_bio img.pr {
   width: 100%;
   max-width: 200px;
-  margin: 0 20px 20px 0;
+  margin: 0 1.33em 1.33em 0;
 }
 #ben_bio p {
   line-height: 1.5em;
   max-width: 400px;
-}
-#ben_bio img.ivy {
-  /*margin-left: 3px;*/
 }
 
 @media screen and (max-width: 700px) {
@@ -602,6 +599,7 @@ nav a:nth-of-type(3) {
             align-items: center;
   }
   #ben_bio h1 {
+    margin-bottom: 0.66em;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -611,13 +609,15 @@ nav a:nth-of-type(3) {
         -ms-flex-order: 3;
             order: 3;
     margin: 0 auto;
+    max-width: 300px;
   }
   #ben_bio p {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2em;
+    max-width: 600px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -626,9 +626,6 @@ nav a:nth-of-type(3) {
   }
   #hype_content .testy .name {
     font-size: 6vw;
-  }
-  #hype_content .testy .name.mo {
-    /*font-size: 5vw;*/
   }
 }
 
@@ -666,8 +663,6 @@ nav a:nth-of-type(3) {
   }
   nav a {
     width: 100%;
-    /*opacity: 0;*/
-    /*transition: opacity 0.33s ease-in;*/
     box-sizing: border-box;
     border-left: none;
     border-right: none;
@@ -751,6 +746,9 @@ nav a:nth-of-type(3) {
   }
   #contact .footer a {
     font-size: 0.8em;
+  }
+  #ben_bio img.pr {
+    max-width: 90%;
   }
 }
 
