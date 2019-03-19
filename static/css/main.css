@@ -514,6 +514,9 @@ nav a:nth-of-type(3) {
 #hype_content .testy {
   margin-bottom: 35px;
 }
+#hype_content .testy strong {
+  /* color: rgb(218, 52, 77); */
+}
 #hype_content .testy:before {
   content: '';
   position: relative;

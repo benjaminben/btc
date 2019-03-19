@@ -28,6 +28,10 @@ function main() {
     nav.className = nav.className.replace(/(?:^|\s)active(?!\S)/, "")
   }
 
+  document.querySelector("nav a.about").addEventListener("click", function(e) {
+    closeNav()
+  })
+
   burger.addEventListener("click", function(e) {
     return(
       nav.className.indexOf("active") === -1
