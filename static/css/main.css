@@ -417,8 +417,8 @@ nav a:nth-of-type(3) {
   padding: 10px;
 }
 
-#contact .title {
-  margin-bottom: 20px;
+#contact .page-title {
+  margin-bottom: 0.33em;
 }
 #contact_error {
   width: 90%;
@@ -426,7 +426,8 @@ nav a:nth-of-type(3) {
   font-weight: 500;
   max-width: 360px;
   color: rgba(218,52,77,1);
-  margin: 0 auto 20px;
+  margin: 1em auto 0;
+  background: white;
 }
 #contact_form {
   width: 90%;
@@ -480,6 +481,10 @@ nav a:nth-of-type(3) {
   background: rgba(64, 88, 53,1);
 }
 
+#contact_form.submitting #contact_error {
+  display: none;
+}
+
 #contact_form.submitting input[type="submit"] {
   display: none;
 }
@@ -493,10 +498,14 @@ nav a:nth-of-type(3) {
   -webkit-animation: phase 1s infinite alternate;
           animation: phase 1s infinite alternate;
 }
+#contact_form.success #contact_error {
+  color: rgba(127,176,105,1);
+}
 #contact .footer {
   color: white;
   text-transform: uppercase;
   padding-bottom: 40px;
+  display: none;
 }
 #contact .footer h1 {
   font-size: 1.66em;
@@ -634,7 +643,8 @@ nav a:nth-of-type(3) {
 
 
 @media screen and (max-width: 768px) {
-  .page-title {
+  #about .page-title,
+  #hype .page-title {
     font-size: 7.66vw;
   }
 }
@@ -743,7 +753,12 @@ nav a:nth-of-type(3) {
   #about_content .section .header h2 {
     font-size: 1.33em;
   }
-
+  #analogy {
+    font-size: 1em;
+  }
+  #contact .page-title {
+    font-size: 3em;
+  }
   #contact .footer h1 {
     font-size: 1.33em;
   }

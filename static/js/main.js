@@ -21,12 +21,8 @@ function main() {
   var burger = document.getElementById("burger")
   var nav    = document.getElementById("nav")
 
-  var openNav = function(e) {
-    nav.className += " active"
-  }
-  var closeNav = function(e) {
-    nav.className = nav.className.replace(/(?:^|\s)active(?!\S)/, "")
-  }
+  var openNav = function(e) { nav.className += " active" }
+  var closeNav = function(e) { nav.className = nav.className.replace(/(?:^|\s)active(?!\S)/, "") }
 
   document.querySelector("nav a.about").addEventListener("click", function(e) {
     closeNav()
@@ -35,10 +31,8 @@ function main() {
   burger.addEventListener("click", function(e) {
     return(
       nav.className.indexOf("active") === -1
-      ?
-      openNav(e)
-      :
-      closeNav(e)
+      ? openNav(e)
+      : closeNav(e)
     )
   })
 }
@@ -74,25 +68,18 @@ function contact() {
   document.getElementById("contact_direct").setAttribute("href", "mailto:info@benteachescode.com")
 
   form.addEventListener("submit", function(event) {
+    event.preventDefault()
     form.className += " submitting"
+    form.className = form.className.replace(/(?:^|\s)success(?!\S)/, "")
 
     try {
-      if (email.value.length === 0) {
-        throw "EMAIL_LENGTH"
-      }
-      else if (!email.value.match(/@.*\./)) {
-        throw "EMAIL_FORMAT"
-      }
-      else if (subject.value.length === 0) {
-        throw "SUBJECT_LENGTH"
-      }
-      else if (body.value.length === 0) {
-        throw "BODY_LENGTH"
-      }
+      if (email.value.length === 0) { throw "EMAIL_LENGTH" }
+      else if (!email.value.match(/@.*\./)) { throw "EMAIL_FORMAT" }
+      else if (subject.value.length === 0) { throw "SUBJECT_LENGTH" }
+      else if (body.value.length === 0) { throw "BODY_LENGTH" }
     }
     catch (err) {
       var errMsg = ""
-
       switch (err) {
         case "EMAIL_LENGTH":
           errMsg = "Please enter an email address for me to write back to"
@@ -110,8 +97,22 @@ function contact() {
 
       form.className = form.className.replace(/(?:^|\s)submitting(?!\S)/, "")
       error.textContent = errMsg
-      event.preventDefault()
+      return
     }
+
+    submitContact(
+      window.location.origin + "/contact",
+      JSON.stringify({Sender: email.value, Subject: subject.value, Body: body.value}),
+      function(status) {
+        form.className = form.className.replace(/(?:^|\s)submitting(?!\S)/, "")
+        form.className = form.className.replace(/(?:^|\s)success(?!\S)/, "")
+        if (status >= 400) {
+          return error.textContent = "Something went wrong."
+        }
+        form.className += " success"
+        return error.textContent = "Thank you! Please expact a response shortly."
+      }
+    )
   })
 }
 
@@ -200,3 +201,11 @@ function testies() {
 }
 
 })()
+
+function submitContact(url, data, cb) {
+  var req = new XMLHttpRequest()
+  req.open("POST", url)
+  req.addEventListener("load", function() {cb(req.status)})
+  req.addEventListener("error", function() {cb(req.status)})
+  req.send(data)
+}

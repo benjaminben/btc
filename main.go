@@ -5,7 +5,15 @@ import(
   "net/http"
   "html/template"
   "io"
+  "log"
+  "encoding/json"
 )
+
+type Contact struct {
+  Sender string
+  Subject string
+  Body string
+}
 
 type Page struct {
   Title string
@@ -45,10 +53,18 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
   if req.Method == "GET" {
     executor.ExecuteTemplate(res, "contact", &Page{Title: "Contact"})
   } else {
-    req.ParseForm()
-    sender := req.Form.Get("email")
-    subject := req.Form.Get("subject")
-    body := req.Form.Get("body")
+    decoder := json.NewDecoder(req.Body)
+    var c Contact
+    err := decoder.Decode(&c)
+    if err != nil {
+      log.Printf("Error: %s", err)
+      http.Error(res, err.Error(), 500)
+      return
+    }
+
+    sender := c.Sender
+    subject := c.Subject
+    body := c.Body
 
     confMsg := fmt.Sprintf("" +
     "Hi there, thanks for reaching out!\r\n" +
@@ -62,7 +78,8 @@ func handleContact(res http.ResponseWriter, req *http.Request) {
     "Body: %s\r\n", sender, subject, body)
 
     SendContact(sender, subject, body, confMsg)
-    http.Redirect(res, req, "/contact", http.StatusSeeOther)
+    res.WriteHeader(http.StatusOK)
+ 	  res.Write([]byte("☄ HTTP status code returned!"))
   }
 }
 func handleTesties(res http.ResponseWriter, req *http.Request) {
